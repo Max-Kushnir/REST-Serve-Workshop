@@ -9,6 +9,8 @@
   <h1>Internship Application Tracker</h1>
 
   <form id="appForm">
+    <input type="hidden" id="appId" />
+    
     <label for="company">Company Name</label>
     <input type="text" id="company" required />
 
@@ -38,7 +40,7 @@
       <option>High</option>
     </select>
 
-    <button type="submit">Add Application</button>
+    <button type="submit">Submit</button>
   </form>
 
   <h2>Applications (<span id="count">0</span>)</h2>
@@ -53,6 +55,7 @@
         <th>Status</th>
         <th>Priority</th>
         <th>Date Applied</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody></tbody>
