@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from backend.models import Application, ApplicationCreate
@@ -13,8 +13,8 @@ app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
-@app.get("/")
-def serve_frontend():
+@app.api_route("/", methods=["GET", "HEAD"])
+def serve_frontend(request: Request):
     return FileResponse("frontend/index.html")
 
 @app.post("/applications/", response_model=Application)
